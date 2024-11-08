@@ -21,8 +21,8 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  return !(number < 0);
 }
 
 /**
@@ -38,8 +38,15 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  let maxNumber = a;
+  if (a < b) {
+    maxNumber = b;
+  }
+  if (maxNumber < c) {
+    maxNumber = c;
+  }
+  return maxNumber;
 }
 
 /**
@@ -82,8 +89,12 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  const valid = a + b;
+  if (valid <= c) {
+    return false;
+  }
+  return !!(a === b || a === c || c === b);
 }
 
 /**
@@ -153,8 +164,13 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -175,7 +191,6 @@ function getIndexOf(/* str, letter */) {
 function isContainNumber(/* num, digit */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Finds the index of an element in an array where the sum of elements to the left equals the sum of elements to the right.
  * If such an index does not return -1.
